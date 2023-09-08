@@ -14,9 +14,20 @@ interface Props {
     handleFormClose: () => void
     handleCreateOrEditActivity: (activity: Activity) => void
     handleDeleteActivity: (id: string) => void
+    submitting: boolean
 }
 
-const ActivityDashboard = ({ activities, selectActivity, selectedActivity, cancelSelectActivity, editMode, handleFormClose, handleFormOpen, handleCreateOrEditActivity, handleDeleteActivity }: Props) => {
+const ActivityDashboard = ({
+    activities,
+    selectActivity,
+    selectedActivity,
+    cancelSelectActivity,
+    editMode,
+    handleFormClose,
+    handleFormOpen,
+    handleCreateOrEditActivity,
+    handleDeleteActivity,
+    submitting }: Props) => {
     return (
         <Grid>
             <Grid.Column width='10'>
@@ -24,6 +35,7 @@ const ActivityDashboard = ({ activities, selectActivity, selectedActivity, cance
                     activities={activities}
                     selectActivity={selectActivity}
                     handleDeleteActivity={handleDeleteActivity}
+                    submitting={submitting}
                 />
             </Grid.Column>
             <Grid.Column width='6'>
@@ -41,6 +53,7 @@ const ActivityDashboard = ({ activities, selectActivity, selectedActivity, cance
                             activity={selectedActivity}
                             handleFormClose={handleFormClose}
                             handleCreateOrEditActivity={handleCreateOrEditActivity}
+                            submitting={submitting}
                         />
                     )}
 
